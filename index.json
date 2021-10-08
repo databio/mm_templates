@@ -9,3 +9,5 @@
     "manuscript/simple_supplement": "manuscript/simple_supplement.jinja",
     "manuscript/generic": "manuscript/generic.jinja",
     "manuscript/manuscript": "manuscript/manuscript.jinja",
+    "destination": "markmeld"
+}
