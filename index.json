@@ -1,6 +1,7 @@
 {
     "citation_lists/citation_list_template_simple": "citation_lists/citation_list_template_simple.jinja",
     "citation_lists/citation_list_template": "citation_lists/citation_list_template.jinja",
+    "citation_lists/citation_list_template_very_simple": "citation_lists/citation_list_template_very_simple.jinja",
     "generic": "generic.jinja",
     "grant/research_plan": "grant/research_plan.jinja",
     "grant/generic": "grant/generic.jinja",
