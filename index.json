@@ -6,6 +6,7 @@
     "generic": "generic.jinja",
     "grant/research_plan": "grant/research_plan.jinja",
     "grant/generic": "grant/generic.jinja",
+    "letter/signed_letter": "letter/signed_letter.jinja",
     "letter": "letter.jinja",
     "manuscript/manuscript_supplement": "manuscript/manuscript_supplement.jinja",
     "manuscript/simple_supplement": "manuscript/simple_supplement.jinja",

@@ -1,0 +1,23 @@
+{% if letter.metadata_yaml is defined %}---
+{{ letter.metadata_yaml }}
+---{% endif %}
+
+\vspace*{\fill}
+
+{% if letter.date %}{{ letter.date }}{% else %}\today{% endif %}
+
+{{to}}
+
+{{letter.content}}
+
+Sincerely,
+
+![]({{signer.sigimage}})  
+{{signer.fname}} {{signer.lname}}, {{signer.suffix}}  
+{{signer.title}}, {{signer.affiliation}}  
+{{signer.web}}  
+{{signer.phone}}
+
+\vspace*{\fill}
+
+

@@ -17,20 +17,19 @@ piinfo: True
 
 ## Current or recently completed research support to highlight:
 
-{% for item in grants %}{% if item.status == "active" and item.highlight == true %}
+{% for item in grants %}{% if item.slug in grant_highlights %}
 
-{{ item.name }} ({{ item.funder }})  
-{{ item.start_date }} - {{ item.end_date }}  
+**{{ item.name }}** ({{ item.funder }}) \hfill {{ item.start_date }} - {{ item.end_date }}  
 {{ item.PI }} (PI){% if item.role != "PI" %}, Role: {{ item.role }}{% endif %}  
-{{ item.title }}  
+{{ item.title }}  \vspace{0.5em}
 {% endif %}{% endfor %}
 
 {% endif %}
 
 ## Publications to highlight:
 
-{% for item in references %}{% if "primary" in item.groups %}
-- {% if item.crednote != "" %}{{item.author_long | replace("Sheffield", "\*Sheffield")}}{% else %}{{ item.author_long }}{% endif %}. {{ item.title }}. **{{ item.year }}**. *{{ item.journal }}*{% if item.volume != "" %} {{ item.volume }}{% endif %}{% if item.pages != "" %}:{{ item.pages }}{% endif %}.{% if item.doi != "" %} {% if item.pmcid != "" %}PMCID:{{ item.pmcid }}{% endif %} DOI: [{{ item.doi }}](http://dx.doi.org/{{ item.doi }}).{% endif %}{% if item.crednote != "" %} \*{{item.crednote}}.{% endif %}{% endif %}{% endfor %}
+{% for item in references %}{% if item.id in publication_highlights %}
+- {% if item.crednote != "" %}{{item.author | replace("Sheffield", "\*Sheffield")}}{% else %}{{ item.author }}{% endif %}. {{ item.title }}. **{{ item.year }}**. *{{ item.journal }}*{% if item.volume != "" %} {{ item.volume }}{% endif %}{% if item.pages != "" %}:{{ item.pages }}{% endif %}.{% if item.doi != "" %} {% if item.pmcid != "" %}PMCID:{{ item.pmcid }}{% endif %} DOI: [{{ item.doi }}](http://dx.doi.org/{{ item.doi }}).{% endif %}{% if item.crednote != "" %} \*{{item.crednote}}.{% endif %}{% endif %}{% endfor %}
 
 # B. Positions, Scientific Appointments, and Honors
 
@@ -59,7 +58,7 @@ piinfo: True
 	
 {{ md[c].content }}{% set cited_refs = md[c].content | extract_refs %}
 {% for item in references %}{% if item.id in cited_refs  %}
-- {% if item.crednote != "" %}{{item.author_long | replace(personal.last_name, "\*" + personal.last_name )}}{% else %}{{ item.author_long }}{% endif %}. {{ item.title }}. **{{ item.year }}**. *{{ item.journal }}*{% if item.volume != "" %} {{ item.volume }}{% endif %}{% if item.pages != "" %}:{{ item.pages }}{% endif %}.{% if item.doi != "" %} {% if item.pmcid != "" %}PMCID:{{ item.pmcid }}{% endif %} DOI: [{{ item.doi }}](http://dx.doi.org/{{ item.doi }}).{% endif %}{% if item.crednote != "" %} \*{{item.crednote}}.{% endif %}{% endif %}{% endfor %}
+- {% if item.crednote != "" %}{{item.author | replace(personal.last_name, "\*" + personal.last_name )}}{% else %}{{ item.author }}{% endif %}. {{ item.title }}. **{{ item.year }}**. *{{ item.journal }}*{% if item.volume != "" %} {{ item.volume }}{% endif %}{% if item.pages != "" %}:{{ item.pages }}{% endif %}.{% if item.doi != "" %} {% if item.pmcid != "" %}PMCID:{{ item.pmcid }}{% endif %} DOI: [{{ item.doi }}](http://dx.doi.org/{{ item.doi }}).{% endif %}{% if item.crednote != "" %} \*{{item.crednote}}.{% endif %}{% endif %}{% endfor %}
 
 {% endfor %}
 
