@@ -1,5 +1,5 @@
 ---
-{% if manuscript.metadata_yaml is defined %}{{ manuscript.metadata_yaml }}{% endif %}---
+{% if manuscript.metadata_yaml is defined %}{{ manuscript.metadata_yaml }}{% endif %}{% if manuscript_metadata is defined %}{{ manuscript_metadata["raw"] }}{% endif %}---
 
 {{ manuscript.content }}
 
@@ -8,3 +8,4 @@
 
 {{ supplement.content }}
 
+{{manuscript_metadata}}
