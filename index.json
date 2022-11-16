@@ -12,5 +12,7 @@
     "manuscript/simple_supplement": "manuscript/simple_supplement.jinja",
     "manuscript/generic": "manuscript/generic.jinja",
     "manuscript/manuscript": "manuscript/manuscript.jinja",
+    "v1/generic": "v1/generic.jinja",
+    "v1/manuscript/manuscript_supplement": "v1/manuscript/manuscript_supplement.jinja",
     "destination": "markmeld"
 }
