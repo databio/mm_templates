@@ -56,11 +56,11 @@
           console.log(response)
           tplList = Object.values(response)
           var tplHTML = "";
-          for (const property in response) {
-            console.log(`${property}: ${response[property]}`);
-            tplHTML += `<h3>${property}</h3>
-              <span class="label">Description</span>: ${property}<br>
-              <span class="label">API Link</span>: <a href="${response[property]}">${response[property]}</a><br>`
+          for (const tpl in response) {
+            console.log(`${tpl}: ${response[tpl]}`);
+            tplHTML += `<h3>${tpl}</h3>
+              <span class="label">Description</span>: ${response[tpl]["description"]}<br>
+              <span class="label">API Link</span>: <a href="${response[tpl]["url"]}">${response[tpl]}</a><br>`
           }
             document.getElementById("templateList").innerHTML = tplHTML
             return tplList
