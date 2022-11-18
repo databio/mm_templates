@@ -1,75 +1,127 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+  <style>
+    h1 {
+      font-size: 2.2em;
 
-    <style>
-      h1 {
-        font-size: 2.2em;
+    }
+    h2 {
+      font-size: 1.6em;
+      margin-top: 25px;
+    }
+    h3 {
+      font-size: 1.2em;
+      margin-top: 15px;
+    }
+    .label {
+      font-weight: 700;
+      margin-left: 20px;
+    }
+    .path {
+      color: green;
+      font-weight: 700;
+      font-family: monospace;
+    }
+    .header { margin-bottom:25px; }
+    .header img {
+      float: left;
+      margin-right: 10px;
+    }
+    .header h1 {
+      margin-top: 20px;
+    }
 
-      }
-      h2 {
-        font-size: 1.6em;
-      }
-      h3 {
-        font-size: 1.2em;
-      }
-      .label {
-        font-weight: 700;
-        margin-left: 20px;
-      }
-      .header { margin-bottom:25px; }
-      .header img {
-        float: left;
-        margin-right: 10px;
-      }
-      .header h1 {
-        margin-top: 20px;
-      }
+  </style>
 
-    </style>
-
-    <title>Markmeld templates</title>
-  </head>
-  <body>
+  <title>Markmeld templates</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg py-2 mb-4 border-bottom navbar-light" aria-label="navbar" style="background-color: #EFF3F6;">
     <div class="container">
-      <div class="header">
-        <h1><img src="https://raw.githubusercontent.com/databio/markmeld/master/docs/img/markmeld_logo_long.svg?sanitize=true" alt="markmeld logo" height="40"> templates</h1>
+      <a href="https://databio.org" alt="Sheffield lab of computational biology" class="align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <img src="https://databio.org/images/logo/logo_databio_long.svg" alt="databio" width="240">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse me-auto" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-sm-0">        
+          <li class="nav-item mx-2 my-0 h5"><a href="https://github.com/databio/mm_templates" class="nav-link">GitHub Repository</a></li>
+          <li class="nav-item mx-2 my-0 h5"><a href="https://markmeld.databio.org/" class="nav-link">Markmeld docs</a></li>
+        </ul>
       </div>
-      <h2>About</h2>
-      Here you'll find markmeld templates
-
-      <h2>List of templates (<a href="https://databio.org/mm_templates/list.json">JSON</a>)</h2>
-      <div id="templateList"></div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script>
+  </nav>
+  <div class="container">
+    <div class="header">
+      <h1><img src="https://raw.githubusercontent.com/databio/markmeld/master/docs/img/markmeld_logo_long.svg?sanitize=true" alt="markmeld logo" height="40"> templates</h1>
+    </div>
+    <h2>About</h2>
+
+    Here you'll find an API for public templates for the <a href="https://markmeld.databio.org/">markmeld</a> markdown melder. These templates define output structure for various output files, like resumes, biosketches, manuscripts, proposals, books, etc. using <a href="https://jinja.palletsprojects.com/en/3.1.x/">jinja</a>.
+
+    <h2>How to use</h2>
+
+    <h3>1. Add link to the mm_templates API.</h3>
+
+    Add this line to your _markmeld.yaml config file:
+    <pre><code class="yaml">mm_templates: https://databio.org/mm_templates/</code></pre>
+
+    <h3>2. Specify relative path to a template.</h3>
+
+    Select a template from the list below and specify the relative path to the template in the target definition. For example:
+<pre><code class="yaml">target:
+  my_target:
+    jinja_template: v1/manuscript/manuscript.jinja
+    data:
+      ...</code></pre>
+
+    <h2>List of templates (<a href="https://databio.org/mm_templates/list.json">JSON</a>)</h2>
+    <div id="templateList"></div>
+
+    <div style="margin:50px">Brought to you by: <a href="https://databio.org">Sheffield lab of computational biology</a></div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
     getList = async () => {
       var tplList = await fetch("https://databio.org/mm_templates/list.json")
-        .then(response => response.json())
-        .then(response => {
-          console.log(response)
-          tplList = Object.values(response)
-          var tplHTML = "";
-          for (const tpl in response) {
-            console.log(`${tpl}: ${response[tpl]}`);
-            tplHTML += `<h3>${tpl}</h3>
-              <span class="label">Description</span>: ${response[tpl]["description"]}<br>
-              <span class="label">API Link</span>: <a href="${response[tpl]["url"]}">${response[tpl]}</a><br>`
-          }
-            document.getElementById("templateList").innerHTML = tplHTML
-            return tplList
-        })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response)
+        tplList = Object.values(response)
+        var tplHTML = "";
+        for (const tpl in response) {
+          console.log(`${tpl}: ${response[tpl]}`);
+          tplHTML += `<h3>${tpl}</h3>
+          <span class="label">Description</span>: ${response[tpl]["description"]}<br>
+          <span class="label">Relative Path</span>: <span class="path">${response[tpl]["url"]}</span><br>
+          <span class="label">API Endpoint</span>:  <a href="${response[tpl]["url"]}">https://databio.org/mm_templates/${response[tpl]["url"]}</a>`
+
+        }
+        document.getElementById("templateList").innerHTML = tplHTML
+        return tplList
+      })
       return tplList;
     }
     var tplList;
     tplList = getList()
-    </script>
-  </body>
+  </script>
+
+
+</body>
 
 </html>
