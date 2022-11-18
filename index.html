@@ -1,0 +1,17 @@
+<html>
+<body>
+	<div id="template_list">
+	</div>
+</body>
+<script>
+getList = () => {
+	fetch("/list.json")
+	.then(response => response.json())
+	.then(response => {
+		document.getElementById("template_list").innerHTML = response
+	})
+}
+
+getList()
+</script>
+</html>
