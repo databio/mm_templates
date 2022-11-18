@@ -1,5 +1,7 @@
 # A collection of markmeld templates
 
+<img src="https://raw.githubusercontent.com/databio/markmeld/master/docs/img/markmeld_logo_long.svg?sanitize=true" alt="markmeld logo" height="70">
+
 This repository provides an API for useful templates for use with [markmeld](http://github.com/databio/markmeld) markdown melder. The templates are published to web using GitHub Pages. To view the list of templates, see: [list.json](list.json).
 
 ## How to use
