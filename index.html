@@ -12,6 +12,7 @@
   <style>
     h1 {
       font-size: 2.2em;
+      color: green;
 
     }
     h2 {
@@ -19,8 +20,12 @@
       margin-top: 25px;
     }
     h3 {
-      font-size: 1.2em;
+      font-size: 1.4em;
       margin-top: 15px;
+    }
+    h4 {
+      font-size: 1.2em;
+      margin-top: 5px;
     }
     .label {
       font-weight: 700;
@@ -49,6 +54,7 @@
     <div class="container">
       <a href="https://databio.org" alt="Sheffield lab of computational biology" class="align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <img src="https://databio.org/images/logo/logo_databio_long.svg" alt="databio" width="240">
+        <img src="https://raw.githubusercontent.com/databio/markmeld/master/docs/img/markmeld_logo_long.svg?sanitize=true" alt="markmeld logo" height="50">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -63,20 +69,20 @@
   </nav>
   <div class="container">
     <div class="header">
-      <h1><img src="https://raw.githubusercontent.com/databio/markmeld/master/docs/img/markmeld_logo_long.svg?sanitize=true" alt="markmeld logo" height="40"> templates</h1>
+      <h1>Markmeld templates</h1>
     </div>
     <h2>About</h2>
 
     Here you'll find an API for public templates for the <a href="https://markmeld.databio.org/">markmeld</a> markdown melder. These templates define output structure for various output files, like resumes, biosketches, manuscripts, proposals, books, etc. using <a href="https://jinja.palletsprojects.com/en/3.1.x/">jinja</a>.
 
     <h2>How to use</h2>
-
-    <h3>1. Add link to the mm_templates API.</h3>
+    <h3>Option 1: Use the remote API (recommended)</h3>
+    <h4>1. Add link to the mm_templates API.</h4>
 
     Add this line to your _markmeld.yaml config file:
     <pre><code class="yaml">mm_templates: https://databio.org/mm_templates/</code></pre>
 
-    <h3>2. Specify relative path to a template.</h3>
+    <h4>2. Specify relative path to a template.</h4>
 
     Select a template from the list below and specify the relative path to the template in the target definition. For example:
 <pre><code class="yaml">target:
@@ -84,6 +90,32 @@
     jinja_template: v1/manuscript/manuscript.jinja
     data:
       ...</code></pre>
+
+    <h3>Option 2: Get the templates locally (for inaccessible compute)</h3>
+
+    Don't want to or can't use remote templates? No problem. You can just clone the template repository and point to the local files on disk.
+    <h4>1. Clone the mm_templates repository.</h4>
+
+    With https:
+
+    <pre><code class="yaml">git clone --depth 1 https://github.com/databio/mm_templates.git</code></pre>
+
+    With ssh:
+
+    <pre><code class="yaml">git clone --depth 1 git@github.com:databio/mm_templates.git</code></pre>
+
+
+    <h4>2. Add link to the mm_templates repo.</h4>
+
+    Add this line to your _markmeld.yaml config file:
+    <pre><code class="yaml">mm_templates: local/path/to/mm_templates/</code></pre>
+
+    <h4>3. Specify relative path to a template.</h4>
+
+    Follow instructions for option 1 above!
+
+
+
 
     <h2>List of templates (<a href="https://databio.org/mm_templates/list.json">JSON</a>)</h2>
     <div id="templateList"></div>
