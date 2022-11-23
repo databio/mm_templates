@@ -1,0 +1,19 @@
+{{ _global_frontmatter.fenced }}
+
+\vspace*{\fill}
+
+{% if letter.date %}{{ letter.date }}{% else %}\today{% endif %}
+
+{{to}}
+
+{{letter}}
+
+Sincerely,
+
+![]({{signer.sigimage}})  
+{{signer.fname}} {{signer.lname}}, {{signer.suffix}}  
+{{signer.title}}, {{signer.affiliation}}  
+{{signer.web}}  
+{{signer.phone}}
+
+\vspace*{\fill}
