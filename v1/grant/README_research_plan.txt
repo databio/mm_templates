@@ -1,0 +1,1 @@
+A template for a research grant following NIH R01-style format with optional aims page, individual aims variables, and optional refs modulated with an 'exclude_refs' variable.

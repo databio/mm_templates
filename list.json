@@ -1,11 +1,11 @@
 {
     "letter": {
-        "url": "v0/letter.jinja",
-        "description": null
+        "url": "v1/letter/letter.jinja",
+        "description": "A simple, vertically centered letter, with frontmatter, and content in a variable called \"data\"."
     },
     "generic": {
         "url": "v1/generic.jinja",
-        "description": "This is a generic template that can be used for testing or for very simple documents that just need to output their content."
+        "description": "This is a generic template that can be used for testing or for very simple documents that just need to output their content. Content is expected to be in a variable called `data`."
     },
     "nih_biosketch": {
         "url": "v0/biosketch/nih_biosketch.jinja",
@@ -24,23 +24,23 @@
         "description": null
     },
     "research_plan": {
-        "url": "v0/grant/research_plan.jinja",
-        "description": null
+        "url": "v1/grant/research_plan.jinja",
+        "description": "A template for a research grant following NIH R01-style format with optional aims page, individual aims variables, and optional refs modulated with an 'exclude_refs' variable."
     },
     "signed_letter": {
-        "url": "v0/letter/signed_letter.jinja",
+        "url": "v1/letter/signed_letter.jinja",
         "description": null
     },
     "manuscript_supplement": {
         "url": "v1/manuscript/manuscript_supplement.jinja",
-        "description": "This is a template for manuscripts, yippie!\n"
+        "description": "This is a template for manuscripts, with main text in {{ manuscript }} and optional {{ supplement }} appended if defined.\n"
     },
     "simple_supplement": {
         "url": "v0/manuscript/simple_supplement.jinja",
         "description": null
     },
     "manuscript": {
-        "url": "v0/manuscript/manuscript.jinja",
-        "description": null
+        "url": "v1/manuscript/manuscript.jinja",
+        "description": "General template for {{ manuscript }} variable.\n"
     }
 }
