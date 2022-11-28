@@ -1,1 +1,1 @@
-This is a generic template that can be used for testing or for very simple documents that just need to output their content.
+This is a generic template that can be used for testing or for very simple documents that just need to output their content. Content is expected to be in a variable called `data`.
