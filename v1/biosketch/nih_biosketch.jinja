@@ -1,0 +1,65 @@
+---
+name: {{ personal.given_name }} {{ personal.last_name }}, {{ personal.title }}
+eracommons: {{ personal.eracommons }}
+position: {{ positions.current.rank }}
+piinfo: True
+---
+\begin{education}
+{% for item in nih_biosketch.education_block %}
+{{ item.institution }}, {{ item.location }} & {{ item.degree }} & {{ item.completion_date }} & {{ item.field_of_study }} \\ {% endfor %}
+\end{education}
+
+# A. Personal Statement
+
+{{ personal_statement }}
+
+{% if grants is defined %}
+
+## Current or recently completed research support to highlight:
+
+{% for item in grants %}{% if item.slug in grant_highlights %}
+
+**{{ item.name }}** ({{ item.funder }}) \hfill {{ item.start_date }} - {{ item.end_date }}  
+{{ item.PI }} (PI){% if item.role != "PI" %}, Role: {{ item.role }}{% endif %}  
+{{ item.title }}  \vspace{0.5em}
+{% endif %}{% endfor %}
+
+{% endif %}
+
+## Publications to highlight:
+
+{% for item in references %}{% if item.id in publication_highlights %}
+- {% if item.crednote != "" %}{{item.author | replace("Sheffield", "\*Sheffield")}}{% else %}{{ item.author }}{% endif %}. {{ item.title }}. **{{ item.year }}**. *{{ item.journal }}*{% if item.volume != "" %} {{ item.volume }}{% endif %}{% if item.pages != "" %}:{{ item.pages }}{% endif %}.{% if item.doi != "" %} {% if item.pmcid != "" %}PMCID:{{ item.pmcid }}{% endif %} DOI: [{{ item.doi }}](http://dx.doi.org/{{ item.doi }}).{% endif %}{% if item.crednote != "" %} \*{{item.crednote}}.{% endif %}{% endif %}{% endfor %}
+
+# B. Positions, Scientific Appointments, and Honors
+
+## Positions and Employment
+
+{% for item in positions.past %}{% if not item.education %}
+- {{ item.dates }}  {{ item.title }}, {{ item.institution }}, {{ item.location }}{% endif %}{% endfor %}
+
+{% if exclude_honors is not defined %}
+## Honors and Awards
+
+{% for item in nih_biosketch.honors %}
+- {{ item.year }}  {{ item.title }}{% endfor %}
+
+{%endif%}
+{% if contribution_list is defined %}
+
+# C. Contributions to Science
+
+[H-index: {{personal.h_index}}]({{ personal.google_scholar }}). ORCID: [{{personal.orcid}}](http://orcid.org/{{personal.orcid}}). 
+
+
+{% set projectcount = namespace(n=0) %}
+
+{% for c in contribution_list %}{% set projectcount.n = projectcount.n + 1 %}*{{ projectcount.n}}. {{ _local_frontmatter[c].dict.title }}*
+	
+{{ _md[c] }}{% set cited_refs = _md[c] | extract_refs %}
+{% for item in references %}{% if item.id in cited_refs  %}
+- {% if item.crednote != "" %}{{item.author | replace(personal.last_name, "\*" + personal.last_name )}}{% else %}{{ item.author }}{% endif %}. {{ item.title }}. **{{ item.year }}**. *{{ item.journal }}*{% if item.volume != "" %} {{ item.volume }}{% endif %}{% if item.pages != "" %}:{{ item.pages }}{% endif %}.{% if item.doi != "" %} {% if item.pmcid != "" %}PMCID:{{ item.pmcid }}{% endif %} DOI: [{{ item.doi }}](http://dx.doi.org/{{ item.doi }}).{% endif %}{% if item.crednote != "" %} \*{{item.crednote}}.{% endif %}{% endif %}{% endfor %}
+
+{% endfor %}
+
+{% endif %}
