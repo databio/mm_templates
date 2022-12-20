@@ -3,13 +3,17 @@
 {{ specific_aims }}
 {% endif %}
 
-{{ significance_innovation }}
+{% if significance_innovation is defined and significance_innovation != None %}{{ significance_innovation }}{% endif %}
 
-{{ aim1 }}
+{% if aim1 is defined and aim1 != None %}{{ aim1 }}{% endif %}
 
-{% if aim2 is defined %}{{ aim2 }}{% endif %}
+{% if aim2 is defined and aim2 != None %}{{ aim2 }}{% endif %}
 
-{% if aim3 is defined %}{{ aim3 }}{% endif %}
+{% if aim3 is defined and aim3 != None %}{{ aim3 }}{% endif %}
+
+{% if aim4 is defined and aim4 != None %}{{ aim4 }}{% endif %}
+
+{% if aim5 is defined and aim5 != None %}{{ aim5 }}{% endif %}
 
 {% if not exclude_refs %}
 \newpage
