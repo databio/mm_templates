@@ -8,7 +8,7 @@
         "description": "This is a generic template that can be used for testing or for very simple documents that just need to output their content. Content is expected to be in a variable called `data`."
     },
     "nih_biosketch": {
-        "url": "v0/biosketch/nih_biosketch.jinja",
+        "url": "v1/biosketch/nih_biosketch.jinja",
         "description": null
     },
     "citation_list_template_simple": {
@@ -42,5 +42,9 @@
     "manuscript": {
         "url": "v1/manuscript/manuscript.jinja",
         "description": "General template for {{ manuscript }} variable.\n"
+    },
+    "flex": {
+        "url": "v1/flex.jinja",
+        "description": "This is a generic template that can be used for any kind of sequential document; just create a varaible called `sections` with the names to include, in order. Like:\n\n```\n  target:\n    data:\n      md_files:\n        specific_aims: src/specific_aims.md\n        significance_innovation: src/significance_innovation.md\n        aim1: src/aim1.md\n        aim2: src/aim2.md\n      variables:\n        sections:\n        - specific_aims\n        - significance_innovation\n        - aim1\n        - aim2\n```"
     }
 }

@@ -13,3 +13,7 @@ You can propose a new template to this repo by PR.
 ## Make your own
 
 It's super easy to make your own template repository for re-use, just use this repository as an example. You can even host it on github pages to share with the world.
+
+## Indexing commit
+
+This repository uses a pre-commit hook to update the `list.json`, with `python index_contents.py > list.json`.
