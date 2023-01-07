@@ -46,5 +46,9 @@
     "flex": {
         "url": "v1/flex.jinja",
         "description": "This is a generic template that can be used for any kind of sequential document; just create a varaible called `sections` with the names to include, in order. Like:\n\n```\n  target:\n    data:\n      md_files:\n        specific_aims: src/specific_aims.md\n        significance_innovation: src/significance_innovation.md\n        aim1: src/aim1.md\n        aim2: src/aim2.md\n      variables:\n        sections:\n        - specific_aims\n        - significance_innovation\n        - aim1\n        - aim2\n```"
+    },
+    "nih_biosketch_v2": {
+        "url": "v1/biosketch/nih_biosketch_v2.jinja",
+        "description": null
     }
 }
