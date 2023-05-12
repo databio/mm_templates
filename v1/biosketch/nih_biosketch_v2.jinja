@@ -57,7 +57,7 @@ piinfo: True
 
 {% for c in contribution_list %}{% set projectcount.n = projectcount.n + 1 %}*{{ projectcount.n}}. {{ _local_frontmatter[c].dict.title }}*
 	
-{{ _md[c] }}{% set cited_refs = _md[c] | extract_refs %}
+{{ _md[c].content }}{% set cited_refs = _md[c].content | extract_refs %}
 {% for item in references %}{% if item.id in cited_refs  %}
 - {% if item.crednote != "" %}{{item.author | replace(personal.last_name, "\*" + personal.last_name )}}{% else %}{{ item.author }}{% endif %}. {{ item.title }}. **{{ item.year }}**. *{{ item.journal }}*{% if item.volume != "" %} {{ item.volume }}{% endif %}{% if item.pages != "" %}:{{ item.pages }}{% endif %}.{% if item.doi != "" %} {% if item.pmcid != "" %}PMCID:{{ item.pmcid }}{% endif %} DOI: [{{ item.doi }}](http://dx.doi.org/{{ item.doi }}).{% endif %}{% if item.crednote != "" %} \*{{item.crednote}}.{% endif %}{% endif %}{% endfor %}
 

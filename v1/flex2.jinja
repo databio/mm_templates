@@ -3,5 +3,5 @@
 {% if main is defined and main != None %}{{main}}{% endif %}
 
 {% for section in sections %}
-{{ _md[section].content }}
+{{ _md[section] }}
 {% endfor %}
