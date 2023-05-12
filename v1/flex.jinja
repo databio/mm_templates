@@ -5,3 +5,7 @@
 {% for section in sections %}
 {{ _md[section].content }}
 {% endfor %}
+
+{% if not _global_frontmatter.dict["suppress-bibliography"] %}
+# References
+{% endif %}

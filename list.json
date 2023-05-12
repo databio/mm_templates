@@ -12,15 +12,15 @@
         "description": null
     },
     "citation_list_template_simple": {
-        "url": "v0/citation_lists/citation_list_template_simple.jinja",
+        "url": "v1/citation_lists/citation_list_template_simple.jinja",
         "description": null
     },
     "citation_list_template": {
-        "url": "v0/citation_lists/citation_list_template.jinja",
+        "url": "v1/citation_lists/citation_list_template.jinja",
         "description": null
     },
     "citation_list_template_very_simple": {
-        "url": "v0/citation_lists/citation_list_template_very_simple.jinja",
+        "url": "v1/citation_lists/citation_list_template_very_simple.jinja",
         "description": null
     },
     "research_plan": {
@@ -47,8 +47,16 @@
         "url": "v1/flex.jinja",
         "description": "This is a generic template that can be used for any kind of sequential document; just create a varaible called `sections` with the names to include, in order. Like:\n\n```\n  target:\n    data:\n      md_files:\n        specific_aims: src/specific_aims.md\n        significance_innovation: src/significance_innovation.md\n        aim1: src/aim1.md\n        aim2: src/aim2.md\n      variables:\n        sections:\n        - specific_aims\n        - significance_innovation\n        - aim1\n        - aim2\n```"
     },
+    "flex2": {
+        "url": "v1/flex2.jinja",
+        "description": null
+    },
     "nih_biosketch_v2": {
         "url": "v1/biosketch/nih_biosketch_v2.jinja",
+        "description": null
+    },
+    "progress_report": {
+        "url": "v1/grant/progress_report.jinja",
         "description": null
     }
 }

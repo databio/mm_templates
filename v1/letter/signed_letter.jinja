@@ -2,11 +2,11 @@
 
 \vspace*{\fill}
 
-{% if letter.date %}{{ letter.date }}{% else %}\today{% endif %}
+{% if letter is defined and letter.date %}{{ letter.date }}{% else %}\today{% endif %}
 
 {{to}}
 
-{{letter}}
+{{content}}
 
 Sincerely,
 
