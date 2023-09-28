@@ -62,5 +62,9 @@
     "progress_report": {
         "url": "v1/grant/progress_report.jinja",
         "description": null
+    },
+    "letter_with_signature": {
+        "url": "v1/letter/letter_with_signature.jinja",
+        "description": null
     }
 }
