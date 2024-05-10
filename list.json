@@ -65,6 +65,6 @@
     },
     "letter_with_signature": {
         "url": "v1/letter/letter_with_signature.jinja",
-        "description": null
+        "description": "A simple, vertically centered letter, with frontmatter, and content in a variable called \"data\".\n\nIt will also add the `{{signature}}` variable, and, if `references` is defined, will add those afterwards.\n\n\n"
     }
 }

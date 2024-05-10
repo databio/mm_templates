@@ -46,7 +46,7 @@ piinfo: True
 - {{ item.year }}  {{ item.title }}{% endfor %}
 
 {%endif%}
-{% if contribution_list is defined %}
+{% if contribution_list is defined and contribution_list is not none %}
 
 # C. Contributions to Science
 
