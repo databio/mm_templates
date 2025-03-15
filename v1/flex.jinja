@@ -1,6 +1,4 @@
-{{ _global_frontmatter.fenced }}
-
-{% if main is defined and main != None %}{{main}}{% endif %}
+{{ _global_frontmatter.fenced }}{% if main is defined and main != None %}{{main}}{% endif %}
 
 {% for section in sections %}
 {{ _md[section].content }}

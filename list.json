@@ -55,8 +55,16 @@
         "url": "v1/flex2.jinja",
         "description": null
     },
+    "nih_biosketch_v3": {
+        "url": "v1/biosketch/nih_biosketch_v3.jinja",
+        "description": null
+    },
     "nih_biosketch_v2": {
         "url": "v1/biosketch/nih_biosketch_v2.jinja",
+        "description": null
+    },
+    "citation_list_template_md": {
+        "url": "v1/citation_lists/citation_list_template_md.jinja",
         "description": null
     },
     "progress_report": {
